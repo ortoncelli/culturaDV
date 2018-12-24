@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Laravel</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- Bootstrap 3.3.5 -->
+	<link rel="stylesheet" href="<?php echo e(asset("bootstrap/css/bootstrap.min.css")); ?>">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="<?php echo e(asset('css/font-awesome.min.css')); ?>">
+</head>
+<body>
+	<?php echo $__env->make("painel.includes.top", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->yieldContent('content'); ?>
+
+	<!-- jQuery 2.1.4 -->
+	<script src="<?php echo e(asset("plugins/jQuery/jQuery-2.1.4.min.js")); ?>"></script>
+	<script src="<?php echo e(asset("js/scripts.js")); ?>"></script>
+	<!-- Bootstrap 3.3.5 -->
+	<script src="<?php echo e(asset("bootstrap/js/bootstrap.min.js")); ?>"></script>
+
+	<!-- page script -->
+	<script>
+        $(function () {
+            // Scripts aqui
+        })
+	</script>
+</body>
+</html>

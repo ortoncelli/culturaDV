@@ -1,0 +1,64 @@
+<?php $__env->startSection('content'); ?>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-md-offset-1">
+                    <?php if(session('success')): ?>
+                        <div class="alert alert-success">
+                            <?php echo e(session('success')); ?>
+
+                        </div>
+                    <?php endif; ?>
+                    <?php if(session('error')): ?>
+                        <div class="alert alert-danger">
+                            <?php echo e(session('error')); ?>
+
+                        </div>
+                    <?php endif; ?>
+                </div>
+                </br>
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Edital
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th class="col-sm-3">Download</th>
+                                    <th class="col-sm-5">Evento</th>
+                                    <th class="col-sm-2">Ano</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php if(count(@$edital) > 0): ?>
+                                    <?php foreach($edital as $editalEvento): ?>
+                                        <tr>
+                                            <td style="vertical-align: middle;">
+                                                <?php if($editalEvento->arquivo != ""): ?>
+                                                <a href="<?php echo e(url('upload/Eventos/Arquivos/'.$editalEvento->arquivo)); ?>"><i
+                                                            class="fa fa-download"></i> Download </a>
+                                                    <?php else: ?>
+                                                        Não existe Edital Cadastrado
+                                                <?php endif; ?>
+                                            </td>
+                                            <td style="vertical-align: middle;"><?php echo e($editalEvento->titulo); ?></td>
+                                            <td style="vertical-align: middle;"><?php echo e($editalEvento->ano); ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="panel-footer"  style="text-align: center ">
+                            <?php echo $edital->render(); ?>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

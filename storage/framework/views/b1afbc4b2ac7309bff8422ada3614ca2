@@ -1,0 +1,59 @@
+<?php $__env->startSection('content'); ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-md-offset-1">
+                <?php if(session('success')): ?>
+                    <div class="alert alert-success">
+                        <?php echo e(session('success')); ?>
+
+                    </div>
+                <?php endif; ?>
+                <?php if(session('error')): ?>
+                    <div class="alert alert-danger">
+                        <?php echo e(session('error')); ?>
+
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-10 col-md-offset-1">
+                <br class="panel panel-default">
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Contato</h3>
+                        <hr style="height:2px; border:none; color:#2e383c; background-color:#2e383c; margin-top: 0px; margin-bottom: 0px;"/>
+                        </br>
+                        <form action="<?php echo e(url('contato/create')); ?>" method="POST">
+                            <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" class="form-control" name="nome" placeholder="nome" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nome">E-mail</label>
+                                <input type="text" class="form-control" name="email" placeholder="email"
+                                       required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nome">Texto</label>
+                                <textarea class="form-control ckeditor" name="texto" placeholder="texto"
+                                          required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-save">&nbsp;</i>Salvar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

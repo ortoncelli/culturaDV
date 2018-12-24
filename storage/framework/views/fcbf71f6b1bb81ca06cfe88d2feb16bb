@@ -1,0 +1,79 @@
+<?php $__env->startSection('content'); ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-md-offset-1">
+                <?php if(session('success')): ?>
+                    <div class="alert alert-success">
+                        <?php echo e(session('success')); ?>
+
+                    </div>
+                <?php endif; ?>
+                <?php if(session('error')): ?>
+                    <div class="alert alert-danger">
+                        <?php echo e(session('error')); ?>
+
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Download de Eventos
+
+                        <a href="<?php echo e(url('/painel/download/create?id='.Input::get('id'))); ?>" class="btn btn-primary"
+                           style="float: right;">Novo Documento</a>
+
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th class="col-sm-2  text-center" style="font-size: 12px; text-align: center">PDF
+                                    Edital/Errata
+                                </th>
+                                <th class="col-sm-5" style="font-size: 12px; text-align: center">Titulo</th>
+                                <th class="col-sm-1" style="font-size: 12px; text-align: center">Ano</th>
+                                <th class="col-sm-1 text-center" style="font-size: 12px; text-align: center">Editar ou
+                                    Excluir
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php if(count(@$itens) > 0): ?>
+                                <?php foreach($itens as $item): ?>
+                                    <tr>
+                                        <td class="text-center" style="vertical-align: middle;">
+                                            <a href="<?php echo e(url('painel/download/DownloadFile?id='.$item->id.'&idEvento='.Input::get('id'))); ?>"
+                                               class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i>
+                                        </td>
+                                        <td class="text-center" style="vertical-align: middle;text-align: center">
+                                            <br><?php echo e($item->titulo); ?></td>
+                                        </td>
+                                        <td style="vertical-align: middle; text-align: center; "><?php echo e($item->ano); ?></td>
+                                        <td class="text-center" style="vertical-align: middle;">
+                                            <a href="<?php echo e(url('painel/download/update?id='.$item->id.'&idEvento='.Input::get('id'))); ?>"
+                                               class="btn btn-primary">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <p></p>
+                                            <a href="<?php echo e(url('painel/download/destroy?id='.$item->id.'&idEvento='.Input::get('id'))); ?>"
+                                               class="btn btn-danger btn-destroy">
+                                                <i class="fa fa-remove"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <?php echo $itens->render(); ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('painel.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

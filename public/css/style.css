@@ -1,0 +1,115 @@
+body {
+    margin: 0
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+* {
+    outline: none
+}
+
+A:link {
+    text-decoration: none
+}
+
+A:visited {
+    text-decoration: none
+}
+
+A:active {
+    text-decoration: none
+}
+
+A:hover {
+    text-decoration: none
+}
+
+::selection {
+    color: #FFF;
+    background-color: #000
+}
+
+::-moz-selection {
+    color: #FFF;
+    background-color: #FF7E00
+}
+
+.top-site{
+    background: url("/imgs/fundoT2.JPG") top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-top: 30%;
+
+}
+
+.menu-site-foto {
+    position: absolute;
+    top: 1px;
+}
+
+.menu-site {
+    position: absolute;
+    top: 33px;
+    width: 100%;
+    background-color: transparent;
+    border-color: transparent !important;
+}
+
+.menu-site  a:hover {
+    color: #fff !important;
+    font-size: 15px;
+    background-color: #000000 !important;
+
+}
+
+.site-rodape{
+    background-color:#0c0c0c;
+    padding: 21px;
+    color: #fff;
+}
+.site-sobre{
+    color:#000;
+    padding: 10px;
+}
+.fundo_login{
+    background: url("/imgs/pFundo.JPG") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 0;
+    color: black;
+    left: 0;
+    overflow: auto;
+    padding: 3em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+
+}
+
+
+/*----------- CONFIGURA��ES SM E MD ------------*/
+@media (min-width: 767px) and (max-width: 1200px) {
+
+}
+
+/*----------- CONFIGURA��ES SM------------*/
+@media (min-width: 767px) and (max-width: 992px) {
+
+
+
+}
+
+/*----------- CONFIGURA��ES XS ------------*/
+@media (max-width: 767px) {
+
+}
+
+
+*[data-src], *[href] {
+    cursor: pointer;
+}

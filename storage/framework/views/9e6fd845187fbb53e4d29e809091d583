@@ -1,0 +1,14 @@
+<?php $__env->startSection('content'); ?>
+    <section class="site-sobre">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <!--<h3 style="text-align: center; font-size: 40px">Sobre</h3>
+                    <hr style="height:2px; border:none; color:#2e383c; background-color:#2e383c; margin-top: 0px; margin-bottom: 0px;"/>-->
+                    <p><?php echo $sobre->texto; ?></p>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

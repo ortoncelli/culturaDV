@@ -1,0 +1,43 @@
+<?php $__env->startSection('content'); ?>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <h3 style="text-align: center; font-size: 40px">Eventos</h3>
+                    <hr style="height:2px; border:none; color:#2e383c; background-color:#2e383c; margin-top: 0px; margin-bottom: 0px;"/>
+                    <div>
+                        <tbody>
+                        <form style="vertical-align: middle;">
+                            <div>
+                                <?php if(count(@eventos) > 0): ?>
+                                    <?php foreach($eventos as $evento): ?>
+                                        <div style=" min-height: 250px;">
+                                            <h3 style="font-weight: bold;"><?php echo e($evento->titulo); ?> </h3>
+                                            <img src="<?php echo e(asset("upload/Eventos/Fotos/". $evento->id . ".jpg")); ?>"
+                                                 style="max-width: 300px; width:170px; margin-left: 6px;
+                                                 float:left; margin-right:15px;  border-radius: 8px;">
+
+                                            <?php echo $evento->texto; ?>
+
+                                            <a href="<?php echo e(url('/download?id='.$evento->id)); ?>" class="btn btn-success">
+                                                <i class="fa fa-file-pdf-o"></i> Edital</a>
+                                        </div>
+                                        <hr style="height:2px; border:none;  background-color:orange; margin-bottom: 0px;"/>
+                                        </br>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                        </form>
+                        </tbody>
+                    </div>
+                    <div class="panel-footer" style="text-align: center ">
+                        <?php echo $eventos->render(); ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
